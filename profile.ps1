@@ -1,8 +1,10 @@
+Import-Module -Name Soumya.Utilities
+
 function Prompt
 {
 	Write-Host "PS " -NoNewline -ForegroundColor Yellow
 	Write-Host $(Get-Location) -ForegroundColor Green
-	
+
 	if (Test-Admin)
 	{
 		Write-Host "$" -NoNewline -ForegroundColor Cyan
@@ -11,7 +13,7 @@ function Prompt
 	{
 		Write-Host ">" -NoNewline -ForegroundColor Magenta
 	}
-	
+
 	return " "
 }
 
