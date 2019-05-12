@@ -1,20 +1,12 @@
 Import-Module -Name Soumya.Utilities
+Import-Module -Name posh-git
 
-function Prompt
-{
-	Write-Host "PS " -NoNewline -ForegroundColor Yellow
-	Write-Host $(Get-Location) -ForegroundColor Green
+function Prompt {
+	$GitPromptSettings.DefaultPromptPrefix.Text = 'PS '
+    $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = [ConsoleColor]::Green
+	$GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
 
-	if (Test-Admin)
-	{
-		Write-Host "$" -NoNewline -ForegroundColor Cyan
-	}
-	else
-	{
-		Write-Host ">" -NoNewline -ForegroundColor Magenta
-	}
-
-	return " "
+    & $GitPromptScriptBlock
 }
 
 $platform = @{ $True = 'x64'; $False = 'x86' }[[System.Environment]::Is64BitProcess]
