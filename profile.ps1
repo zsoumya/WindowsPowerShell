@@ -3,10 +3,10 @@ Import-Module -Name posh-git
 
 function Prompt {
 	$GitPromptSettings.DefaultPromptPrefix.Text = 'PS '
-    $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = [ConsoleColor]::Green
+	$GitPromptSettings.DefaultPromptPrefix.ForegroundColor = [ConsoleColor]::Green
 	$GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
 
-    & $GitPromptScriptBlock
+	& $GitPromptScriptBlock
 }
 
 $platform = @{ $True = 'x64'; $False = 'x86' }[[System.Environment]::Is64BitProcess]
