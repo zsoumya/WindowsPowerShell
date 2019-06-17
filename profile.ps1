@@ -44,8 +44,10 @@ function Prompt {
         $promptString = ('$' * ($nestedPromptLevel + 1)) + ' '
         $newLine = [System.Environment]::NewLine
 
+        $label = if ($PSVersionTable.PSVersion.Major -ge 6) { "PWSH" } else { "PS" }
+
         return `
-            $(colorize $([MyConsoleColors]::FGWhite) "PWSH [") + `
+            $(colorize $([MyConsoleColors]::FGWhite) "$label [") + `
             $(colorize $([MyConsoleColors]::FGRedBold) $userName) + `
             $(colorize $([MyConsoleColors]::Reset) "@") + `
             $(colorize $([MyConsoleColors]::FGGreenBold) $computerName) + `
