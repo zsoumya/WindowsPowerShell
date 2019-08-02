@@ -8,8 +8,7 @@ function Prompt {
         $computerName = [System.Environment]::MachineName
         $promptString = ('$' * ($nestedPromptLevel + 1)) + ' '
         $newLine = [System.Environment]::NewLine
-
-        $label = if ($PSVersionTable.PSVersion.Major -ge 6) { "PWSH" } else { "PS" }
+        $label = if ($PSVersionTable.PSEdition -eq "Core") { "PWSH" } else { "PS" }
 
         return `
             $(colorize $([MyConsoleColors]::FGWhite) "$label [") + `
