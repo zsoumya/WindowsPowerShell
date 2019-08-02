@@ -1,5 +1,7 @@
 Set-StrictMode -Version Latest
 
+Import-Module -Name Soumya.Utilities
+
 . (Join-Path $PSScriptRoot ColorUtils.ps1)
 
 function Prompt {
@@ -8,10 +10,13 @@ function Prompt {
         $computerName = [System.Environment]::MachineName
         $promptString = ('$' * ($nestedPromptLevel + 1)) + ' '
         $newLine = [System.Environment]::NewLine
+        $bit = @{ $True = 'x64'; $False = 'x86' }[[System.Environment]::Is64BitProcess]
         $label = if ($PSVersionTable.PSEdition -eq "Core") { "PWSH" } else { "PS" }
 
         return `
-            $(colorize $([MyConsoleColors]::FGWhite) "$label [") + `
+            $(colorize $([MyConsoleColors]::FGWhite) "$label") + `
+            $(colorize $([MyConsoleColors]::FGCyanBold) "$bit") + `
+            $(colorize $([MyConsoleColors]::Reset) " [") + `
             $(colorize $([MyConsoleColors]::FGRedBold) $userName) + `
             $(colorize $([MyConsoleColors]::Reset) "@") + `
             $(colorize $([MyConsoleColors]::FGGreenBold) $computerName) + `
