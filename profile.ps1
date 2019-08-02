@@ -8,7 +8,7 @@ function Prompt {
     try {
         $userName = [System.Environment]::UserName
         $computerName = [System.Environment]::MachineName
-        $promptString = ('$' * ($nestedPromptLevel + 1)) + ' '
+        $promptString = '$ '
         $newLine = [System.Environment]::NewLine
         $bit = @{ $True = 'x64'; $False = 'x86' }[[System.Environment]::Is64BitProcess]
         $label = if ($PSVersionTable.PSEdition -eq "Core") { "PWSH" } else { "PS" }
