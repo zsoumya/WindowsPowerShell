@@ -1,0 +1,3 @@
+function Prompt {
+    return "PM> "
+}

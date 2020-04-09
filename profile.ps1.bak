@@ -16,14 +16,15 @@ function Prompt {
         return `
             $(colorize $([MyConsoleColors]::FGWhite) "$label") + `
             $(colorize $([MyConsoleColors]::FGCyanBold) "$bit") + `
-            $(colorize $([MyConsoleColors]::Reset) " [") + `
-            $(colorize $([MyConsoleColors]::FGRedBold) $userName) + `
-            $(colorize $([MyConsoleColors]::Reset) "@") + `
-            $(colorize $([MyConsoleColors]::FGGreenBold) $computerName) + `
-            $(colorize $([MyConsoleColors]::Reset) "] ") + `
-            $(colorize $([MyConsoleColors]::FGYellowBold) $(shortenCurrentPath)) + `
+            $(colorize $([MyConsoleColors]::Reset) " ") + `
+            # $(colorize $([MyConsoleColors]::Reset) " [") + `
+            # $(colorize $([MyConsoleColors]::FGRedBold) $userName) + `
+            # $(colorize $([MyConsoleColors]::Reset) "@") + `
+            # $(colorize $([MyConsoleColors]::FGGreenBold) $computerName) + `
+            # $(colorize $([MyConsoleColors]::Reset) "] ") + `
+            $(colorize $([MyConsoleColors]::FGPurpleBold) $(shortenCurrentPath)) + `
             $(colorize $([MyConsoleColors]::Reset) $newLine) + `
-            $(colorize $([MyConsoleColors]::FGWhite) $promptString)
+            $(colorize $([MyConsoleColors]::FGGreenBold) $promptString)
     }
     catch {
         Write-Host "An error occurred:"
