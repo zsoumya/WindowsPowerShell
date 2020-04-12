@@ -17,7 +17,9 @@ $Global:GitPromptSettings.DefaultPromptSuffix.ForegroundColor = $promptStringFor
 $Global:GitPromptSettings.DefaultPromptSuffix.Text = "$newLine$promptString"
 
 $Global:GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $promptPrefixForeColor
-$Global:GitPromptSettings.DefaultPromptPrefix.Text = "$label$bit·"
+$Global:GitPromptSettings.DefaultPromptPrefix.Text = "$label$bit ➤ "
 
 $Global:GitPromptSettings.DefaultPromptWriteStatusFirst = $false
-$Global:GitPromptSettings.PathStatusSeparator.Text = "·"
+
+$Global:GitPromptSettings.PathStatusSeparator.ForegroundColor = $promptPrefixForeColor
+$Global:GitPromptSettings.PathStatusSeparator.Text = " ➤ "
