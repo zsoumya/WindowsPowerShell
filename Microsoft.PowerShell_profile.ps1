@@ -1,6 +1,7 @@
 ﻿Import-Module posh-git -RequiredVersion 1.0.0
 
 $promptChar = '⚡'
+$separatorChar = '➤'
 $promptPathForeColor = 'magenta'
 $promptPrefixForeColor = 'yellow'
 $promptStringForeColor = 'darkred'
@@ -17,9 +18,9 @@ $Global:GitPromptSettings.DefaultPromptSuffix.ForegroundColor = $promptStringFor
 $Global:GitPromptSettings.DefaultPromptSuffix.Text = "$newLine$promptString"
 
 $Global:GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $promptPrefixForeColor
-$Global:GitPromptSettings.DefaultPromptPrefix.Text = "$label$bit ➤ "
+$Global:GitPromptSettings.DefaultPromptPrefix.Text = "$label$bit $separatorChar "
 
 $Global:GitPromptSettings.DefaultPromptWriteStatusFirst = $false
 
 $Global:GitPromptSettings.PathStatusSeparator.ForegroundColor = $promptPrefixForeColor
-$Global:GitPromptSettings.PathStatusSeparator.Text = " ➤ "
+$Global:GitPromptSettings.PathStatusSeparator.Text = " $separatorChar "
